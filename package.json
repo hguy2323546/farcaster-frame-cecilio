@@ -7,7 +7,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@farcaster/frame-sdk": "latest",
     "@privy-io/react-auth": "latest",
     "next": "13.4.19",
     "react": "18.2.0",
