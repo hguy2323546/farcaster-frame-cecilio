@@ -1,26 +1,18 @@
 import { useEffect } from "react";
 import { usePrivy } from "@privy-io/react-auth";
-import { useLoginToFrame } from "@privy-io/react-auth/farcaster";
-import frameSdk from "@farcaster/frame-sdk";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  const { ready, authenticated } = usePrivy();
-  const { initLoginToFrame, loginToFrame } = useLoginToFrame();
+  const { ready, authenticated, login } = usePrivy();
   const router = useRouter();
 
   useEffect(() => {
-    const login = async () => {
-      const { nonce } = await initLoginToFrame();
-      const result = await frameSdk.actions.signIn({ nonce });
-      await loginToFrame({
-        message: result.message,
-        signature: result.signature,
-      });
+    const tryLogin = async () => {
+      await login({ method: "farcaster" });
     };
 
     if (ready && !authenticated) {
-      login();
+      tryLogin();
     }
 
     if (ready && authenticated) {
