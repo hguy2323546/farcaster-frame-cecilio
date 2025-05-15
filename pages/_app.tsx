@@ -6,10 +6,6 @@ export default function App({ Component, pageProps }: any) {
       appId="cmaohyzwc02zkjv0l50tam9xy"
       config={{
         loginMethods: ["wallet"],
-        walletConnectors: {
-          ethereum: false,
-          solana: true
-        },
         appearance: {
           theme: "light"
         }
