@@ -1,14 +1,20 @@
-import { PrivyProvider } from "@privy-io/react-auth";
+import type { AppProps } from 'next/app';
+import { PrivyProvider } from '@privy-io/react-auth';
 
-export default function App({ Component, pageProps }: any) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <PrivyProvider
       appId="cmaohyzwc02zkjv0l50tam9xy"
       config={{
-        loginMethods: ["wallet"],
+        loginMethods: ['wallet'],
         appearance: {
-          theme: "light"
-        }
+          theme: 'light',
+        },
+        externalWallets: {
+          solana: true,
+          ethereum: false,
+        },
+        embeddedWallets: undefined
       }}
     >
       <Component {...pageProps} />
