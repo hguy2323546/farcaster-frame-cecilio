@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     const tryLogin = async () => {
-      await login({ method: "farcaster" });
+      await login();
     };
 
     if (ready && !authenticated) {
