@@ -1,13 +1,21 @@
 import { PrivyProvider } from "@privy-io/react-auth";
-import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: any) {
   return (
     <PrivyProvider
-      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
+      appId="cmaohyzwc02zkjv0l50tam9xy"
       config={{
-        loginMethods: ["farcaster"],
-        appearance: { theme: "light" }
+        loginMethods: ["wallet"], // Nur Wallet-Login aktivieren
+        walletConnectors: {
+          ethereum: false,        // MetaMask & Co deaktivieren
+          solana: true            // Nur Solana (Phantom) erlauben
+        },
+        appearance: {
+          theme: "light",
+        },
+        embeddedWallets: {
+          createOnLogin: false    // Keine eingebauten Wallets automatisch erstellen
+        }
       }}
     >
       <Component {...pageProps} />
