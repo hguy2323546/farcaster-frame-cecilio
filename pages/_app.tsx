@@ -5,16 +5,13 @@ export default function App({ Component, pageProps }: any) {
     <PrivyProvider
       appId="cmaohyzwc02zkjv0l50tam9xy"
       config={{
-        loginMethods: ["wallet"], // Nur Wallet-Login aktivieren
+        loginMethods: ["wallet"],
         walletConnectors: {
-          ethereum: false,        // MetaMask & Co deaktivieren
-          solana: true            // Nur Solana (Phantom) erlauben
+          ethereum: false,
+          solana: true
         },
         appearance: {
-          theme: "light",
-        },
-        embeddedWallets: {
-          createOnLogin: false    // Keine eingebauten Wallets automatisch erstellen
+          theme: "light"
         }
       }}
     >
