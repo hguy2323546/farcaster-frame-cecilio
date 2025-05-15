@@ -11,8 +11,12 @@ export default function App({ Component, pageProps }: AppProps) {
           theme: 'light',
         },
         externalWallets: {
-          solana: true,
-          ethereum: false,
+          solana: {
+            connectors: ['phantom'], // Nur Phantom erlauben
+          },
+          ethereum: {
+            connectors: [],
+          },
         },
         embeddedWallets: undefined
       }}
